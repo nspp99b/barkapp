@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+		@bark = current_user.barks.build if logged_in?
   end
 
   def new
@@ -24,6 +25,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+		@bark = current_user.barks.build if logged_in?
+		@barks = @user.barks.limit(5)
   end
 
   def edit

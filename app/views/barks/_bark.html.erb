@@ -1,0 +1,11 @@
+<li id="bark-<%= bark.id %>">
+  <span class="user"><%= link_to bark.user.name, bark.user %></span>
+  <span class="content"><%= bark.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(bark.created_at) %> ago.
+  </span>
+  <% if current_user == bark.user %>
+  <span class="edits"><%= link_to "edit", "/barks/#{bark.id}/edit" %> | <%= link_to "delete", bark, method: :delete,
+                                data: { confirm: "You sure?" } %></span>
+  <% end %>
+</li>

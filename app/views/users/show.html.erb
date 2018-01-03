@@ -2,9 +2,19 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1>
-        <%= @user.name %>
-      </h1>
+      <%= render 'shared/user_info' %>
+    </section>
+    <section class="bark_form">
+      <% provide(:button_text, 'Bark!') %>
+      <%= render 'shared/bark_form' %>
     </section>
   </aside>
+  <div class="col-md-8">
+    <% if @user.barks.any? %>
+      <h3>Barks (<%= @user.barks.count %>)</h3>
+      <ol class="barks">
+        <%= render @barks %>
+      </ol>
+    <% end %>
+  </div>
 </div>
