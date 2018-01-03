@@ -14,7 +14,7 @@ class ParksController < ApplicationController
     @park = Park.new(park_params)
     if @park.save
       flash[:success] = "Ruff!"
-      redirect_to request.referrer
+      redirect_to parks_path
     else
       redirect_to request.referrer
     end

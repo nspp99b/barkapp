@@ -4,6 +4,7 @@
     <section class="user_info">
       <%= render 'shared/park_info' %>
     </section>
+    <h4>Create a Review</h4>
     <section class="review_form">
       <% provide(:button_text, 'Add Review!') %>
       <%= render 'shared/review_form' %>
@@ -11,13 +12,12 @@
   </aside>
   <div class="col-md-8">
       <h3>Description</h3>
-      <p><%= @park.description%></p>
+      <p class="description"><%= @park.description%></p>
       <% if @park.reviews.any? %>
         <h3>Reviews (<%= @park.reviews.count %>)</h3>
         <ol class="barks">
           <%= render @reviews %>
         </ol>
       <% end %>
-
   </div>
 </div>

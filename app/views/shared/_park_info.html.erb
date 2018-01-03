@@ -1,3 +1,4 @@
 <h1><%= @park.name %></h1>
-<h2><%= @park.address%></h2>
-<%=link_to "Edit", edit_park_path(@park) %>
+<p class="address"><%= @park.address%><br>
+<%=link_to "edit", edit_park_path(@park) %>
+</p>
