@@ -6,6 +6,7 @@
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Help", help_path %></li>
         <% if logged_in? %>
+          <li><%= link_to "Parks", parks_path %></li>
           <li><%= link_to "Pups", users_path %></li>
           <li><%= link_to "Barks", barks_path %></li>
           <li class="dropdown">

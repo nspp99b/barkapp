@@ -25,14 +25,17 @@ class ParksController < ApplicationController
   end
 
   def update
-    @park = Park.find(params[:id])
-    @user = @park.user
+    @park = Park.find(params[:id])  
     if @park.update_attributes(park_params)
       flash[:success] = "Ruff"
       redirect_to @park
     else
       render 'edit'
     end
+  end
+
+  def show
+    @park = Park.find(params[:id])
   end
 
   def destroy
