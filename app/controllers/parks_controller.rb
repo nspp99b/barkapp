@@ -25,7 +25,7 @@ class ParksController < ApplicationController
   end
 
   def update
-    @park = Park.find(params[:id])  
+    @park = Park.find(params[:id])
     if @park.update_attributes(park_params)
       flash[:success] = "Ruff"
       redirect_to @park
@@ -36,6 +36,8 @@ class ParksController < ApplicationController
 
   def show
     @park = Park.find(params[:id])
+    @review = @park.reviews.build if logged_in?
+    @reviews = @park.reviews.limit(5)
   end
 
   def destroy

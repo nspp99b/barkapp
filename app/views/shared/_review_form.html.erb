@@ -1,0 +1,22 @@
+<%= form_for(@review) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.hidden_field :park_id, value: @park.id %>
+
+  <%= f.label :overall %>
+  <%= f.select :overall, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]]), class: 'form-control' %>
+
+  <%= f.label :energy_level %>
+  <%= f.select :energy_level, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]]), class: 'form-control' %>
+
+  <%= f.label :facilities %>
+  <%= f.select :facilities, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]]), class: 'form-control' %>
+
+  <%= f.label :scene %>
+  <%= f.select :scene, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]]), class: 'form-control' %>
+
+  <%= f.label :content %>
+  <%= f.text_area :content, class: 'form-control' %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
