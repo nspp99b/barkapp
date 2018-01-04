@@ -1,4 +1,5 @@
 <% provide(:title, 'All Parks') %>
+<%=link_to "Add New Park", new_park_path %>
 
 <h1>Craziest Parks</h1>
 <ul class="barks">
@@ -25,8 +26,6 @@
 </ul>
 
 <h1>All Parks by Overall Rating</h1>
-<%=link_to "Add New Park", new_park_path %>
-
 <ul class="barks">
   <%= render @parks %>
 </ul>
