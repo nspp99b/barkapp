@@ -1,6 +1,6 @@
 <li>
   <%= link_to park.name, park %>
-  <br> Overall Rating: <%= number_with_precision(park.reviews.average(:overall), precision: 1) %> | <%=park.reviews.count%> reviews
+  <br> Overall Rating: <%= number_with_precision(park.overall_average, precision: 1) %> | <%=park.reviews.count%> reviews
   <% if current_user.admin? && !current_user?(user) %>
     | <%= link_to "delete", park, method: :delete,
                                   data: { confirm: "You sure?" } %>
