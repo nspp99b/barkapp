@@ -12,12 +12,14 @@
   </aside>
   <div class="col-md-8">
       <h3>Description</h3>
-      <p class="description"><%= @park.description%></p>
-      <p class="rating"><%= number_with_precision(@park.reviews.count(:overall), precision: 0) %> reviews</p>
-      <p class="rating">Overall Rating: <%= number_with_precision(@park.reviews.average(:overall), precision: 1)%></p>
-      <p class="rating">Energy Level: <%= number_with_precision(@park.reviews.average(:energy_level), precision: 1)%> 
-      <p class="rating">Facilities: <%= number_with_precision(@park.reviews.average(:facilities), precision: 1)%></p>
-      <p class="rating">Scene: <%= number_with_precision(@park.reviews.average(:scene), precision: 1)%></p>
+      <span class="description"><%= @park.description%></span>
+      <div class="rating">
+        <br>
+        <span>Overall Rating: <%= number_with_precision(@park.overall_average, precision: 1)%></span><br>
+        <span>Energy Level: <%= number_with_precision(@park.energy_level_average, precision: 1)%></span><br>
+        <span>Facilities: <%= number_with_precision(@park.facilities_average, precision: 1)%></span><br>
+        <span>Scene: <%= number_with_precision(@park.scene_average, precision: 1)%></span><br>
+      </div>
       <% if @park.reviews.any? %>
         <h3>Reviews (<%= @park.reviews.count %>)</h3>
         <ol class="barks">

@@ -7,11 +7,26 @@ class Park < ApplicationRecord
   has_many :users, through: :reviews
 
 
+  def overall_average
+    self.reviews.average(:overall)
+  end
 
-def self.sorted_by_average
-  parks = self.all
-  parks.sort {|a, b| b.reviews.average(:overall) <=> a.reviews.average(:overall)}
-end
+  def energy_level_average
+    self.reviews.average(:energy_level)
+  end
+
+  def facilities_average
+    self.reviews.average(:facilities)
+  end
+
+  def scene_average
+    self.reviews.average(:scene)
+  end
+
+  def self.sorted_by_average
+    parks = self.all
+    parks.sort {|a, b| b.reviews.average(:overall) <=> a.reviews.average(:overall)}
+  end
 
 
 end
