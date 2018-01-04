@@ -2,7 +2,7 @@ class ParksController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
 
   def index
-    @parks = Park.all.limit(30)
+    @parks = Park.sorted_by_average
   end
 
    def new

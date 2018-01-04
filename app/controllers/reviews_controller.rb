@@ -10,6 +10,32 @@ def create
   end
 end
 
+def edit
+  @review = Review.find(params[:id])
+  @park = @review.park
+end
+
+def update
+  @review = Review.find(params[:id])
+  @park = @review.park
+  if @review.update_attributes(review_params)
+    flash[:success] = "Ruff"
+    redirect_to @park
+  else
+    render 'edit'
+  end
+end
+
+def destroy
+  @review = Review.find(params[:id])
+  @park = @review.park
+  @review.destroy
+  flash[:success] = "Bark retracted upon further reflection"
+  redirect_to @park
+end
+
+
+
 private
 
 def review_params
