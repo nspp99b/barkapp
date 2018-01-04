@@ -9,7 +9,6 @@ class ParksController < ApplicationController
      @park = Park.new
    end
 
-
   def create
     @park = Park.new(park_params)
     if @park.save

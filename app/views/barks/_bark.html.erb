@@ -1,6 +1,7 @@
 <li id="bark-<%= bark.id %>">
   <span class="user"><%= link_to bark.user.name, bark.user %></span>
   <span class="content"><%= bark.content %></span>
+  <%= link_to "Like", bark_likes_path(bark), method: :post %> <%= bark.likes.count %>
   <span class="timestamp">
     Posted <%= time_ago_in_words(bark.created_at) %> ago.
   </span>
