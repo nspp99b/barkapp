@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   resources :users #maybe clean up new and create routes
-  resources :barks, only: [:index, :create, :edit, :update, :destroy] do
-    resources :likes, only: [:create, :destroy]
-  end
+  resources :barks, only: [:index, :create, :edit, :update, :destroy]
+  resources :likes, only: [:create, :destroy]
+  post "/likes/:id", to: 'likes#destroy'
   resources :parks
   resources :reviews, only: [:create, :edit, :destroy, :update]
 

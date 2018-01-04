@@ -1,7 +1,12 @@
 <li id="bark-<%= bark.id %>">
   <span class="user"><%= link_to bark.user.name, bark.user %></span>
   <span class="content"><%= bark.content %></span>
-  <%= link_to "Like", bark_likes_path(bark), method: :post %> <%= bark.likes.count %>
+  <% if bark.liking_users.include?(current_user) %>
+    <% like_id = bark.likes.where(user_id: current_user.id).ids.first %>
+    <%= button_to "Unlike", {:controller => "likes", :action => "destroy", :id => like_id}, form: {style: 'display:inline-block;'} %> <%= bark.likes.count %>
+  <% else %>
+    <%= button_to "Like", {:controller => "likes", :action => "create", :user_id => current_user.id, :bark_id => bark.id}, form: {style: 'display:inline-block;'} %> <%= bark.likes.count %>
+  <% end %>
   <span class="timestamp">
     Posted <%= time_ago_in_words(bark.created_at) %> ago.
   </span>

@@ -5,4 +5,9 @@ class Bark < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 250 }
+
+  def find_like_id_by_user(user)
+    self.likes.find_by(user_id: user).id
+  end
+
 end
