@@ -13,15 +13,18 @@
   <div class="col-md-8">
       <h3>Description</h3>
       <span class="description"><%= @park.description%></span>
-      <div class="rating">
-        <br>
-        <span>Overall Rating: <%= number_with_precision(@park.overall_average, precision: 1)%></span><br>
-        <span>Energy Level: <%= number_with_precision(@park.energy_level_average, precision: 1)%></span><br>
-        <span>Facilities: <%= number_with_precision(@park.facilities_average, precision: 1)%></span><br>
-        <span>Scene: <%= number_with_precision(@park.scene_average, precision: 1)%></span><br>
-      </div>
-      <% if @park.reviews.any? %>
-        <h3>Reviews (<%= @park.reviews.count %>)</h3>
+      <% if @park.reviews.count > 0 %>
+        <div class="rating">
+          <br>
+          <span>Overall Rating: <%= number_with_precision(@park.overall_average, precision: 1)%></span><br>
+          <span>Energy Level: <%= number_with_precision(@park.energy_level_average, precision: 1)%></span><br>
+          <span>Facilities: <%= number_with_precision(@park.facilities_average, precision: 1)%></span><br>
+          <span>Scene: <%= number_with_precision(@park.scene_average, precision: 1)%></span><br>
+        </div>
+        <% else %>
+      <% end %>
+      <h3>Reviews (<%= @park.reviews.count %>)</h3>
+      <% if @park.reviews.count > 0 %>
         <ol class="barks">
           <%= render @reviews %>
         </ol>

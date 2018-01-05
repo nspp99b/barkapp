@@ -1,7 +1,15 @@
 <% provide(:title, 'All Parks') %>
 <%=link_to "Add New Park", new_park_path %>
 
-<h1>Craziest Parks</h1>
+<h1>Highest Overall Rating</h1>
+<ul class="barks">
+  <% @overall_parks.each do |park| %>
+    <li><%= link_to park.name, park %><br>
+    Overall Rating: <%= number_with_precision(park.overall_average, precision: 1) %> | <%=park.reviews.count%> reviews </li>
+  <% end %>
+</ul>
+
+<h1>Parks with Highest Energy Level</h1>
 <ul class="barks">
   <% @energy_parks.each do |park| %>
     <li><%= link_to park.name, park %><br>
@@ -17,7 +25,7 @@
   <% end %>
 </ul>
 
-<h1>Best Parks for Humping</h1>
+<h1>Best Parks for Meeting Other Dogs</h1>
 <ul class="barks">
   <% @scene_parks.each do |park| %>
     <li><%= link_to park.name, park %><br>
@@ -25,7 +33,7 @@
   <% end %>
 </ul>
 
-<h1>All Parks by Overall Rating</h1>
+<h1>All Parks</h1>
 <ul class="barks">
   <%= render @parks %>
 </ul>

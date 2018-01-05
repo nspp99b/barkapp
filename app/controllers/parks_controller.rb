@@ -2,7 +2,8 @@ class ParksController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
 
   def index
-    @parks = Park.sorted_by_overall_average
+    @parks = Park.all
+    @overall_parks = Park.sorted_by_overall_average[0..2]
     @energy_parks = Park.sorted_by_energy_level_average[0..2]
     @facilities_parks = Park.sorted_by_facilities_average[0..2]
     @scene_parks = Park.sorted_by_scene_average[0..2]
