@@ -17,5 +17,12 @@
       </ol>
     <% end %>
 
+    <% if @user.reviews.any? %>
+      <h3>Reviews (<%= @user.reviews.count %>)</h3>
+      <ol class="barks">
+        <%= render @reviews %>
+      </ol>
+    <% end %>
+
   </div>
 </div>

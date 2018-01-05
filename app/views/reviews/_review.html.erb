@@ -1,5 +1,6 @@
 <li id="review-<%= review.id %>">
-  <span class="user"><%= link_to review.user.name, review.user %></span>
+  <span class="user"><%= link_to review.user.name, review.user %></span> | 
+  <span class="user"><%= link_to review.park.name, review.park %></span>
   <span class="content"><%= review.content %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(review.created_at) %> ago.
