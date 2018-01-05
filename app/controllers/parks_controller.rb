@@ -47,7 +47,7 @@ class ParksController < ApplicationController
     @park = Park.find(params[:id])
     @park.destroy
     flash[:success] = "Ruff"
-    redirect_to @parks
+    redirect_to request.referrer
   end
 
   private

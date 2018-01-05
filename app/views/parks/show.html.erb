@@ -16,10 +16,10 @@
       <% if @park.reviews.count > 0 %>
         <div class="rating">
           <br>
-          <span>Overall Rating: <%= number_with_precision(@park.overall_average, precision: 1)%> | Most Common: <%= @park.most_freq_overall_rating %></span><br>
-          <span>Energy Level: <%= number_with_precision(@park.energy_level_average, precision: 1)%> | Most Common: <%= @park.most_freq_energy_level_rating %></span><br>
-          <span>Facilities: <%= number_with_precision(@park.facilities_average, precision: 1)%> | Most Common: <%= @park.most_freq_facilities_rating %></span><br>
-          <span>Scene: <%= number_with_precision(@park.scene_average, precision: 1)%> | Most Common: <%= @park.most_freq_scene_rating %></span><br>
+          <span>Overall Rating: <%= number_with_precision(@park.overall_average, precision: 1)%> <% if current_user.admin? %> | Most Common: <%= @park.most_freq_overall_rating %> <% end %></span><br>
+          <span>Energy Level: <%= number_with_precision(@park.energy_level_average, precision: 1)%> <% if current_user.admin? %> | Most Common: <%= @park.most_freq_energy_level_rating %> <% end %></span><br>
+          <span>Facilities: <%= number_with_precision(@park.facilities_average, precision: 1)%> <% if current_user.admin? %> | Most Common: <%= @park.most_freq_facilities_rating %> <% end %></span><br>
+          <span>Scene: <%= number_with_precision(@park.scene_average, precision: 1)%> <% if current_user.admin? %> | Most Common: <%= @park.most_freq_scene_rating %> <% end %></span><br>
         </div>
         <% else %>
       <% end %>
