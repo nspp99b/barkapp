@@ -13,7 +13,8 @@
   <%= render @barks %>
 </ul>
 
-<h1>Quick Stats (will be admin - only)</h1>
+  <% if current_user.admin? %>
+<h1>Quick Stats (admin - only)</h1>
 
 <ul>
   <li> Created Last Day: <%=pluralize(@created_last_day, "bark")%>  </li>
@@ -22,3 +23,5 @@
   <li> Created Last Year: <%=pluralize(@created_last_year, "bark")%>  </li>
   <li> Average Content Length: <%=  number_with_precision(@average_length,  precision: 0) %> </li>
 </ul>
+
+<% end %>

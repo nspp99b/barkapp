@@ -28,7 +28,8 @@
   <%= render @users %>
 </ul>
 
-<h1>Quick Stats (will be admin - only)</h1>
+  <% if current_user.admin? %>
+<h1>Quick Stats (admin - only)</h1>
 
 <ul>
 <h2>New Users: </h2>
@@ -51,3 +52,5 @@
   <li> Average Review Length: <%=  pluralize(number_with_precision(@average_review_length,  precision: 0), "character") %> </li>
 
 </ul>
+
+<% end %>
