@@ -1,6 +1,24 @@
 <% provide(:title, 'All Barks') %>
+
+<h1>Most Liked Barks</h1>
+
+ <ul class="barks">
+   <%= render @top_barks %>
+ </ul>
+
+
 <h1>Latest Barks</h1>
 
 <ul class="barks">
   <%= render @barks %>
+</ul>
+
+<h1>Quick Stats (will be admin - only)</h1>
+
+<ul>
+  <li> Created Last Day: <%=pluralize(@created_last_day, "bark")%>  </li>
+  <li> Created Last Week: <%=pluralize(@created_last_week, "bark")%>  </li>
+  <li> Created Last Month: <%=pluralize(@created_last_month, "bark")%>  </li>
+  <li> Created Last Year: <%=pluralize(@created_last_year, "bark")%>  </li>
+  <li> Average Content Length: <%=  number_with_precision(@average_length,  precision: 0) %> </li>
 </ul>

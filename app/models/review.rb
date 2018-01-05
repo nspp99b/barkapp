@@ -7,4 +7,15 @@ class Review < ApplicationRecord
   validates :content, length: { maximum: 250 }
   default_scope -> { order(created_at: :desc) }
 
+  def self.average_length
+    reviews_with_content = self.where("length(content) > 0")
+    reviews_to_use = reviews_with_content.length
+    total_chars = 0
+    reviews_with_content.each do |review|
+      total_chars += review.content.length
+    end
+    total_chars/reviews_to_use
+  end
+
+
 end
