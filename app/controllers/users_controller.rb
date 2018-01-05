@@ -6,6 +6,21 @@ class UsersController < ApplicationController
   def index
     @users = User.all
 		@bark = current_user.barks.build if logged_in?
+		@top_barkers = User.sorted_by_number_of_barks[0..2]
+		@top_reviewers = User.sorted_by_number_of_reviews[0..2]
+		@newest_pups = User.sorted_by_creation[0..2]
+		@created_last_day = User.created_last_day
+		@created_last_week = User.created_last_week
+		@created_last_month = User.created_last_month
+		@created_last_year = User.created_last_year
+		@average_bark_length = Bark.average_length
+		@average_review_length = Review.average_length
+		@average_number_of_reviews = User.average_number_of_reviews
+		@average_number_of_likes = User.average_number_of_likes
+		@average_number_of_barks = User.average_number_of_barks
+		@median_number_of_reviews = User.median_number_of_reviews
+		@median_number_of_likes = User.median_number_of_likes
+		@median_number_of_barks = User.median_number_of_barks
   end
 
   def new
@@ -27,6 +42,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 		@bark = current_user.barks.build if logged_in?
 		@barks = @user.barks.limit(5)
+		@reviews = @user.reviews.limit(5)
   end
 
   def edit

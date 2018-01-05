@@ -3,6 +3,12 @@ class BarksController < ApplicationController
 
   def index
     @barks = Bark.all.limit(30)
+    @top_barks = Bark.sorted_by_likes[0..2]
+    @created_last_day = Bark.created_last_day
+    @created_last_week = Bark.created_last_week
+    @created_last_month = Bark.created_last_month
+    @created_last_year = Bark.created_last_year
+    @average_length = Bark.average_length
   end
 
   def create

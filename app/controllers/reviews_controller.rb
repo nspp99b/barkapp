@@ -10,6 +10,7 @@ def create
   end
 end
 
+
 def edit
   @review = Review.find(params[:id])
   @park = @review.park

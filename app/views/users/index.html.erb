@@ -1,6 +1,53 @@
 <% provide(:title, 'All Pups') %>
-<h1>All Pups</h1>
+
+<h1>Pup Superlatives</h1>
+<h2>Loudest Barkers</h2>
+<ul class="barks">
+  <% @top_barkers.each do |user| %>
+    <li><%= link_to user.name, user %> |  <%= pluralize(user.barks.count, "bark") %> </li>
+  <% end %>
+</ul>
+
+<h2>Busiest Reviewers</h2>
+<ul class="barks">
+  <% @top_reviewers.each do |user| %>
+    <li><%= link_to user.name, user %> | <%= pluralize(user.reviews.count, "review") %> </li>
+  <% end %>
+</ul>
+
+<h2>Newest Pups</h2>
+<ul class="barks">
+  <% @newest_pups.each do |user| %>
+    <li><%= link_to user.name, user %> | Joined <%= time_ago_in_words(user.created_at) %> ago. </li>
+  <% end %>
+</ul>
+
+<h1>All Pups (<%=@users.count%>)</h1>
 
 <ul class="users">
   <%= render @users %>
+</ul>
+
+<h1>Quick Stats (will be admin - only)</h1>
+
+<ul>
+<h2>New Users: </h2>
+  <li> Joined Last Day: <%=pluralize(@created_last_day, "user")%>  </li>
+  <li> Joined Last Week: <%=pluralize(@created_last_week, "user")%>  </li>
+  <li> Joined Last Month: <%=pluralize(@created_last_month, "user")%>  </li>
+  <li> Joined Last Year: <%=pluralize(@created_last_year, "user")%>  </li>
+
+
+<h2>Stats Per User: </h2>
+  <li> Average Number of Reviews: <%=  pluralize(number_with_precision(@average_number_of_reviews,  precision: 1), "review") %> </li>
+  <li> Median Number of Reviews: <%=  pluralize(number_with_precision(@median_number_of_reviews,  precision: 1), "review") %> </li>
+  <li> Average Number of Barks: <%=  pluralize(number_with_precision(@average_number_of_barks,  precision: 1), "bark") %> </li>
+  <li> Median Number of Barks: <%=  pluralize(number_with_precision(@median_number_of_barks,  precision: 1), "bark") %> </li>
+  <li> Average Number of Likes: <%=  pluralize(number_with_precision(@average_number_of_likes,  precision: 1), "like") %> </li>
+  <li> Median Number of Likes: <%=  pluralize(number_with_precision(@median_number_of_likes,  precision: 1), "like") %> </li>
+
+<h2>Content: </h2>
+  <li> Average Bark Length: <%=  pluralize(number_with_precision(@average_bark_length,  precision: 0), "character") %> </li>
+  <li> Average Review Length: <%=  pluralize(number_with_precision(@average_review_length,  precision: 0), "character") %> </li>
+
 </ul>
