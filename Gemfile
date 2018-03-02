@@ -11,6 +11,8 @@ gem 'rails'
 # Use sqlite3 as the database for Active Record
 gem 'bootstrap-sass'
 # gem 'jquery-rails'
+gem 'carrierwave'
+gem 'mini_magick'
 gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'

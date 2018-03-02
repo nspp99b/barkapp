@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :image, ImageUploader
   has_many :reviews
   has_many :parks, through: :reviews
   has_many :barks, dependent: :destroy

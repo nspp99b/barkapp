@@ -1,4 +1,4 @@
-# README
+# BARK
 
 BARK is a social media app for doggies, and explicitly NOT for kitties.
 Create an account to review the parks you know about and bark about what's on your mind!
