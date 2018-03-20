@@ -1,8 +1,8 @@
 # BARK
+BARK is a social media app for doggies, and explicitly NOT for kitties OR humans.
 
 ![Bark_HomeScreen](app/assets/images/screenshots/home.png "Bark HomeScreen")
 
-BARK is a social media app for doggies, and explicitly NOT for kitties OR humans.
 Create an account to review the parks you know about and bark about what's on your mind!
 
 ![Bark_Profile](app/assets/images/screenshots/profile.png "Bark Profile")
