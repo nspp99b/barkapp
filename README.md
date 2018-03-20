@@ -9,7 +9,8 @@ Create an account to review the parks you know about and bark about what's on yo
 
 ![Bark_Park](app/assets/images/screenshots/park.png "Bark Park")
 
-Find a park that's a good fit for you:
+Find a park that's a good fit for you:  
+
 ![Bark_Stats](app/assets/images/screenshots/stats.png "Bark Stats")
 
 * Ruby version  
