@@ -1,5 +1,6 @@
 # BARK
 BARK is a social media app for doggies, and explicitly NOT for kitties OR humans.
+[Demo](https://youtu.be/izzwgXwwojQ)
 
 ![Bark_HomeScreen](app/assets/images/screenshots/home.png "Bark HomeScreen")
 
@@ -13,20 +14,20 @@ Find a park that's a good fit for you:
 
 ![Bark_Stats](app/assets/images/screenshots/stats.png "Bark Stats")
 
-* Ruby version  
+## Ruby version  
 2.3.3
 
-* System dependencies  
+## System dependencies  
 Rails 5.1.4  
 Bootstrap 3.3.7  
 Rspec-rails 3.7.2
 
-* Configuration  
+## Configuration  
 To get started, fork and clone the repository to your local machine, run bundle install, then run db:migrate to create a database and knock yourself out!
 
-* Testing
+## Testing  
 Rspec is used to test validations on the three main models.  Ignore the default Rails "Test" folder.  
 Run rspec to run all tests.
 
-* Maintenance/Contribution
+## Maintenance/Contribution  
 This repo was more or less a practice run and is not maintained, but that does not diminish the hilarity of this idea.  Please feel free to flesh out any expected functionality!
